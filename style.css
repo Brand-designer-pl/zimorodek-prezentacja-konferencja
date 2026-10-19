@@ -79,3 +79,8 @@
 .night.photo-slide .photo-shade{background:linear-gradient(180deg,#003653f5 0%,#003653ed 48%,#003653b3 70%,#00365338)}
 }
 @media(min-width:701px),(orientation:landscape){.contact-slide .photo-background{width:110%;max-width:none}.analytics-slide .photo-shade{background:linear-gradient(90deg,#eaf3f7f5 0%,#eaf3f7eb 34%,#eaf3f7b8 48%,transparent 72%)}}
+
+/* Rebalance map slide after removing bird; clean static PDF export. */
+@media(min-width:701px),(orientation:landscape){.map-slide .content{padding-left:0}}
+.export-mode .tools,.export-mode .slide-nav,.export-mode .paging button,.export-mode .skip{display:none!important}
+.export-mode *{animation:none!important;transition:none!important}

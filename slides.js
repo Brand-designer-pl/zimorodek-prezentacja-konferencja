@@ -13,6 +13,7 @@
  document.getElementById('motion').onclick=()=>{paused=!paused;document.body.classList.toggle('paused',paused);const b=document.getElementById('motion');b.setAttribute('aria-pressed',String(paused));b.setAttribute('aria-label',paused?'Wznów animacje':'Wstrzymaj animacje');b.textContent=paused?'▷':'Ⅱ';};
  const fs=document.getElementById('fullscreen');fs.onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await root.requestFullscreen();}catch{status.textContent='Pełny ekran niedostępny. Użyj trybu pełnoekranowego przeglądarki.';}};
  document.addEventListener('fullscreenchange',()=>fs.setAttribute('aria-label',document.fullscreenElement?'Wyłącz pełny ekran':'Włącz pełny ekran'));
+ if(new URLSearchParams(location.search).has('export')){paused=true;document.body.classList.add('export-mode','paused');}
  const initial=slides.findIndex(s=>`#${s.id}`===location.hash);activate(initial<0?0:initial);root.classList.replace('no-js','js');if(initial>0)scroller.scrollTo({top:slides[initial].offsetTop,behavior:'instant'});
  window.addEventListener('resize',()=>scroller.scrollTo({top:slides[current].offsetTop,behavior:'instant'}));
  window.addEventListener('hashchange',()=>{const i=slides.findIndex(s=>`#${s.id}`===location.hash);if(i>=0)go(i)});
